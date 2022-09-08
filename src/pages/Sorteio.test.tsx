@@ -68,8 +68,8 @@ describe('Na página de sorteio', () => {
     const select = screen.getByPlaceholderText('Selecione o seu nome');
     fireEvent.change(select, { target: { value: participantes[0] } });
 
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
+    const botao = screen.getByRole('button');
+    fireEvent.click(botao);
 
     act(() => {
       jest.runAllTimers();
