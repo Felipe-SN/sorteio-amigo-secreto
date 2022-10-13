@@ -1,5 +1,7 @@
-@import url('./components/UI/variables/index.css');
+import { colors } from 'components/UI/variables';
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
@@ -8,8 +10,8 @@
 }
 
 html {
-  background: var(--cor-primaria);
-  border: 2px solid var(--cor-bordas);
+  background: ${colors.corPrimaria};
+  border: 2px solid ${colors.corBordas};
   font-family: 'Poppins', sans-serif;
 }
 
@@ -26,14 +28,14 @@ section {
 }
 
 h2 {
-  color: var(--cor-primaria);
+  color: ${colors.corPrimaria};
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 36px;
 }
 
 ul li {
-  color: var(--cor-preenchimento);
+  color: ${colors.corPreenchimento};
   font-size: 1rem;
   margin-bottom: 8px;
 }
@@ -48,4 +50,6 @@ ul li:last-child {
     text-align: center;
   }
 }
+`;
 
+export default GlobalStyle;

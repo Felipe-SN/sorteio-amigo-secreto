@@ -1,5 +1,3 @@
-@import url('../components/UI/variables/index.css');
-
 .sorteio {
   display: flex;
   flex-direction: column;
