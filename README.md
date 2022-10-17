@@ -4,4 +4,4 @@ Projeto de sorteio de amigo secreto do curso "React: testando os seus componente
 
 ## Previa disponível em:
 
-https://sorteio-amigo-secreto-two.vercel.app/
+https://sorteioamigosecreto.vercel.app/
