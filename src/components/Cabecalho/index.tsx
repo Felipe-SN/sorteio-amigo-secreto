@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import participanteImg from 'img/participante.png';
-import './style.css';
+import participanteImg from 'assets/img/participante.png';
+import logo from 'assets/img/logo.png';
+import logoMobile from 'assets/img/logo-pequeno.png';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -15,12 +16,12 @@ const StyledHeader = styled.header`
 `;
 
 const Logo = styled.div`
-  background-image: url('/public/img/logo.png');
+  background-image: url(${logo});
   width: 351px;
   height: 117px;
 
   @media screen and (max-width: 800px) {
-    background-image: url('/public/img/logo-pequeno.png');
+    background-image: url(${logoMobile});
     width: 235px;
     height: 199px;
   }
