@@ -4,9 +4,10 @@ export const sizes = {
 };
 
 export const colors = {
-  corTextoBranco: '#ffffff',
-  corPreenchimento: '#444444',
-  corBordas: '#000000',
-  corPrimaria: '#4b69fd',
-  corSecundaria: '#fe652b',
+  texto: '#ffffff',
+  preenchimento: '#444444',
+  primaria: '#4b69fd',
+  secundariaA: '#000000',
+  secundariaB: '#fe652b',
+  terciaria: '#fff9eb',
 };

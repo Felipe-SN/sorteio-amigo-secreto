@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
-  background: ${colors.corPrimaria};
-  border: 2px solid ${colors.corBordas};
+  background: ${colors.primaria};
+  border: 2px solid ${colors.secundariaA};
   font-family: 'Poppins', sans-serif;
 }
 
@@ -28,14 +28,14 @@ section {
 }
 
 h2 {
-  color: ${colors.corPrimaria};
+  color: ${colors.primaria};
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 36px;
 }
 
 ul li {
-  color: ${colors.corPreenchimento};
+  color: ${colors.preenchimento};
   font-size: 1rem;
   margin-bottom: 8px;
 }
