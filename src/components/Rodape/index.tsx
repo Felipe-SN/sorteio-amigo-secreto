@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useSorteador } from 'state/hooks/useSorteador';
-import data from 'assets/data/index.json';
+import data from 'data/imgs.json';
 import styled from 'styled-components';
 import StandardButton from 'components/UI/components/StandardButton';
 

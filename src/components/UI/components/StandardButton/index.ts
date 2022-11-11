@@ -1,5 +1,5 @@
 import { colors, sizes } from 'components/UI/variables';
-import data from 'assets/data/index.json';
+import data from 'data/imgs.json';
 import styled from 'styled-components';
 
 const StandardButton = styled.button`

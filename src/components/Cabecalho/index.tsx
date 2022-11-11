@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import data from 'assets/data/index.json';
+import data from 'data/imgs.json';
 
 const StyledHeader = styled.header`
   display: flex;

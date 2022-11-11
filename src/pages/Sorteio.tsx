@@ -1,6 +1,6 @@
 import Card from 'components/Card';
 import StandardButton from 'components/UI/components/StandardButton';
-import data from 'assets/data/index.json';
+import data from 'data/imgs.json';
 import { colors, sizes } from 'components/UI/variables';
 import { useState } from 'react';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';

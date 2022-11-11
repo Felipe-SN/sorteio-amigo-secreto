@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import useAdicionarParticipante from 'state/hooks/useAdicionarParticipante';
 import useMensagemErro from 'state/hooks/useMensagemErro';
-import data from 'assets/data/index.json';
+import data from 'data/imgs.json';
 import { colors, sizes } from 'components/UI/variables/index';
 import styled from 'styled-components';
 
