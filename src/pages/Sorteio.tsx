@@ -1,8 +1,133 @@
 import Card from 'components/Card';
+import StandardButton from 'components/UI/components/StandardButton';
+import data from 'assets/data/index.json';
+import { colors, sizes } from 'components/UI/variables';
 import { useState } from 'react';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio';
-import './Sorteio.css';
+import styled from 'styled-components';
+
+const StyledSorteio = styled.section`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+`;
+
+const CustomSelect = styled.div`
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 35px;
+  border: 2px solid ${colors.secundariaA};
+  box-shadow: 2px 2px 1px 0px ${colors.secundariaA};
+  color: ${colors.preenchimento};
+  display: grid;
+  font-size: 1rem;
+  grid-template-areas: 'customSelect';
+  height: 75px;
+  max-width: 476px;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  &::after {
+    background-color: ${colors.preenchimento};
+    clip-path: polygon(100% 0%, 0% 0%, 50% 100%);
+    content: '';
+    grid-area: customSelect;
+    height: 8px;
+    justify-self: end;
+    pointer-events: none;
+    width: 16px;
+  }
+
+  @media screen and (max-width: 800px) {
+    border: 1px solid ${colors.secundariaA};
+    box-shadow: 2px 2px 0px ${colors.secundariaA};
+    height: ${sizes.inputMobileHeight};
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+`;
+
+const Informativo = styled.p`
+  color: ${colors.preenchimento};
+  font-size: 1.25rem;
+  line-height: 30px;
+  margin-bottom: 21px;
+  margin-top: 32px;
+  max-height: 55px;
+  max-width: 425px;
+  text-align: center;
+
+  @media screen and (max-width: 800px) {
+    width: 328px;
+    font-size: 18px;
+    line-height: 27px;
+  }
+`;
+
+const ButtonSortear = styled(StandardButton)`
+  gap: 17px;
+  max-width: 227px;
+
+  &::before {
+    background-image: url(${data.imagens.dice});
+    background-size: auto;
+    height: 35px;
+    width: 35px;
+  }
+
+  @media screen and (max-width: 800px) {
+    gap: 13px;
+    height: 60px;
+    width: 155px;
+  }
+
+  &::before {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+`;
+
+const WrapperResultado = styled.div`
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    height: 65px;
+  }
+`;
+
+const Resultado = styled.p`
+  color: ${colors.secundariaB};
+  font-size: 1.55rem;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.125rem;
+  }
+`;
+
+const FooterSorteio = styled.footer`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+`;
+
+const Airplane = styled.img`
+  height: 136px;
+  width: 150px;
+
+  @media screen and (max-width: 800px) {
+    height: 114px;
+    width: 125px;
+  }
+`;
 
 const Sorteio = () => {
   const [participanteDaVez, setParticipanteDaVez] = useState('default');
@@ -20,10 +145,10 @@ const Sorteio = () => {
 
   return (
     <Card>
-      <section className="sorteio">
+      <StyledSorteio>
         <h2>Quem vai tirar o papelzinho?</h2>
         <form onSubmit={sortear}>
-          <div className="customSelect">
+          <CustomSelect>
             <select
               id="participanteDaVez"
               name="participanteDaVez"
@@ -39,25 +164,23 @@ const Sorteio = () => {
                 <option key={participante}>{participante}</option>
               ))}
             </select>
-          </div>
-          <p className="informativo">
+          </CustomSelect>
+          <Informativo>
             Clique em sortear para ver quem é seu amigo secreto!
-          </p>
-          <button className="botao-sortear">Sortear!</button>
+          </Informativo>
+          <ButtonSortear>Sortear!</ButtonSortear>
         </form>
-        {amigoSecreto && (
-          <p className="resultado" role="alert">
-            {amigoSecreto}
-          </p>
-        )}
-      </section>
-      <footer className="sorteio">
-        <img
+        <WrapperResultado>
+          {amigoSecreto && <Resultado role="alert">{amigoSecreto}</Resultado>}
+        </WrapperResultado>
+      </StyledSorteio>
+      <FooterSorteio>
+        <Airplane
+          aria-hidden={true}
           alt="Um desenho de um avião de papel"
-          className="aviao"
-          src="img/aviao.png"
+          src={data.imagens.airplane}
         />
-      </footer>
+      </FooterSorteio>
     </Card>
   );
 };

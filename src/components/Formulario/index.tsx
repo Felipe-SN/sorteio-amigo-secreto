@@ -102,13 +102,17 @@ const WrapperInputBtn = styled.div`
 `;
 
 const AlertaErro = styled.span`
+  position: absolute;
   background-color: #f8d7da;
   border-radius: 8px;
   border: 1px solid #f5c2c7;
   color: #842029;
+  font-size: 2rem;
   padding: 16px;
+  z-index: 5;
 
   @media screen and (max-width: 800px) {
+    font-size: 1rem;
     margin: 24px 0;
   }
 `;

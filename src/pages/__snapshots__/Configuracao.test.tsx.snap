@@ -3,7 +3,7 @@
 exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
 <div>
   <div
-    class="card"
+    class="sc-bcXHqe ldcdWJ"
   >
     <section>
       <h2>
@@ -11,7 +11,7 @@ exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
       </h2>
       <form>
         <div
-          class="grupo-input-btn"
+          class="sc-gswNZR heeYVX"
         >
           <input
             placeholder="Insira os nomes dos participantes"
@@ -28,17 +28,18 @@ exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
       </form>
       <ul />
       <footer
-        class="rodape-configuracoes"
+        class="sc-eDvSVe flOdzN"
       >
         <button
-          class="botao"
+          class="sc-hLBbgP fXtuGw"
           disabled=""
         >
           Iniciar brincadeira!
         </button>
         <img
           alt="Sacolas de compras"
-          class="imagem-sacolas"
+          aria-hidden="true"
+          class="sc-jSUZER eHNkSE"
           src="/img/sacolas.png"
         />
       </footer>

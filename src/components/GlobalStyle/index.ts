@@ -44,6 +44,31 @@ ul li:last-child {
   margin-bottom: 0;
 }
 
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  appearance: none;
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  grid-area: customSelect;
+  line-height: inherit;
+  margin: 0;
+  outline: none;
+  width: 100%;
+}
+
+select:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 800px) {
   h2 {
     font-size: 1.25rem;
