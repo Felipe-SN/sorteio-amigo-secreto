@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import participanteImg from 'assets/img/participante.png';
-import logo from 'assets/img/logo.png';
-import logoMobile from 'assets/img/logo-pequeno.png';
+import data from 'assets/data/index.json';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -16,12 +14,12 @@ const StyledHeader = styled.header`
 `;
 
 const Logo = styled.div`
-  background-image: url(${logo});
+  background-image: url(${data.imagens.logo});
   width: 351px;
   height: 117px;
 
   @media screen and (max-width: 800px) {
-    background-image: url(${logoMobile});
+    background-image: url(${data.imagens.logoPequeno});
     width: 235px;
     height: 199px;
   }
@@ -41,7 +39,7 @@ const Cabecalho = () => {
     <StyledHeader>
       <Logo role="img" aria-label="Sorteador de Amigo Secreto" />
       <Participante
-        src={participanteImg}
+        src={data.imagens.participante}
         alt="Participante com um presente na mão"
       />
     </StyledHeader>

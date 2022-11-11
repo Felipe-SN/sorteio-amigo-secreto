@@ -1,0 +1,12 @@
+{
+  "imagens": {
+    "addPerson": "/img/addPerson.svg",
+    "airplane": "/img/airplane.png",
+    "dice": "/img/dice.svg",
+    "logo": "/img/logo.png",
+    "logoPequeno": "/img/logo-pequeno.png",
+    "participante": "/img/participante.png",
+    "play": "/img/play.svg",
+    "sacolas": "/img/sacolas.png"
+  }
+}
