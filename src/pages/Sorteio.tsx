@@ -1,10 +1,10 @@
-import Card from 'components/Card';
-import StandardButton from 'components/UI/components/StandardButton';
-import data from 'data/imgs.json';
 import { colors, sizes } from 'components/UI/variables';
-import { useState } from 'react';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio';
+import { useState } from 'react';
+import Card from 'components/Card';
+import data from 'data/imgs.json';
+import StandardButton from 'components/UI/components/StandardButton';
 import styled from 'styled-components';
 
 const StyledSorteio = styled.section`
@@ -152,6 +152,7 @@ const Sorteio = () => {
             <select
               id="participanteDaVez"
               name="participanteDaVez"
+              title="Participante da vez"
               onChange={e => setParticipanteDaVez(e.target.value)}
               placeholder="Selecione o seu nome"
               required
@@ -165,21 +166,13 @@ const Sorteio = () => {
               ))}
             </select>
           </CustomSelect>
-          <Informativo>
-            Clique em sortear para ver quem é seu amigo secreto!
-          </Informativo>
+          <Informativo>Clique em sortear para ver quem é seu amigo secreto!</Informativo>
           <ButtonSortear>Sortear!</ButtonSortear>
         </form>
-        <WrapperResultado>
-          {amigoSecreto && <Resultado role="alert">{amigoSecreto}</Resultado>}
-        </WrapperResultado>
+        <WrapperResultado>{amigoSecreto && <Resultado role="alert">{amigoSecreto}</Resultado>}</WrapperResultado>
       </StyledSorteio>
       <FooterSorteio>
-        <Airplane
-          aria-hidden={true}
-          alt="Um desenho de um avião de papel"
-          src={data.imagens.airplane}
-        />
+        <Airplane aria-hidden={true} alt="Um desenho de um avião de papel" src={data.imagens.airplane} />
       </FooterSorteio>
     </Card>
   );
