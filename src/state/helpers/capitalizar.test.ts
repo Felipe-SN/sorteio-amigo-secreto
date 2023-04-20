@@ -1,4 +1,4 @@
-import capitalizar from './capitatizar';
+import capitalizar from './capitatizar.ts';
 
 describe('O texto inserido deve ser retornado:', () => {
   test('com a primeira letra de cada palavra em maiúsculo', () => {

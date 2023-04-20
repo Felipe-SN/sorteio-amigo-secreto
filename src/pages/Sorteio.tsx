@@ -131,14 +131,14 @@ const Airplane = styled.img`
 
 const Sorteio = () => {
   const [participanteDaVez, setParticipanteDaVez] = useState('default');
-  const [amigoSecreto, setAmigoSecreto] = useState('');
+  const [amigoSecreto, setAmigoSecreto] = useState<string | undefined>('');
   const listaParticipantes = useListaParticipantes();
   const resultado = useResultadoSorteio();
 
   const sortear = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (resultado.has(participanteDaVez)) {
-      setAmigoSecreto(resultado.get(participanteDaVez)!);
+      setAmigoSecreto(resultado.get(participanteDaVez));
       setTimeout(() => setAmigoSecreto(''), 5000);
     }
   };

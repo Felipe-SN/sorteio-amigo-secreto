@@ -2,6 +2,6 @@
 
 Projeto de sorteio de amigo secreto do curso "React: testando os seus componentes" da Alura.
 
-## Previa disponível em:
+## Visualização disponível em:
 
 https://sorteioamigosecreto.vercel.app/
