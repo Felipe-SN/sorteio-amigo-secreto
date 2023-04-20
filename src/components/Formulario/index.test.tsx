@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
-import Formulario from '.';
+import Formulario from './index.tsx';
 
 describe('Teste de comportamento do componente Formulario:', () => {
   test('Quando o input esta vazio, novos participantes não podem ser adicionados', () => {
@@ -10,9 +10,7 @@ describe('Teste de comportamento do componente Formulario:', () => {
       </RecoilRoot>
     );
     // selecionar o input no documento
-    const input = screen.getByPlaceholderText(
-      'Insira os nomes dos participantes'
-    );
+    const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
     //selecionar o botão de 'Adicionar' no documento
     const botao = screen.getByRole('button');
     // se espera que o input esteja no documento
@@ -28,9 +26,7 @@ describe('Teste de comportamento do componente Formulario:', () => {
       </RecoilRoot>
     );
     // selecionar o input no documento
-    const input = screen.getByPlaceholderText(
-      'Insira os nomes dos participantes'
-    );
+    const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
     //selecionar o botão de 'Adicionar' no documento
     const botao = screen.getByRole('button');
     //inserir um valor no input
@@ -49,9 +45,7 @@ describe('Teste de comportamento do componente Formulario:', () => {
         <Formulario />
       </RecoilRoot>
     );
-    const input = screen.getByPlaceholderText(
-      'Insira os nomes dos participantes'
-    );
+    const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
     const botao = screen.getByRole('button');
     fireEvent.change(input, { target: { value: 'Maria Silva' } });
     fireEvent.click(botao);
@@ -61,9 +55,7 @@ describe('Teste de comportamento do componente Formulario:', () => {
     // seleciona a mensagem de erro na tela
     const mensagemDeErro = screen.getByRole('alert');
     // garante que a mensagem de erro foi exibida corretamente na tela
-    expect(mensagemDeErro.textContent).toBe(
-      'Nomes duplicados não são permitidos!'
-    );
+    expect(mensagemDeErro.textContent).toBe('Nomes duplicados não são permitidos!');
   });
 
   test('Mensagem de erro deve sumir apos os timers', () => {
@@ -73,9 +65,7 @@ describe('Teste de comportamento do componente Formulario:', () => {
         <Formulario />
       </RecoilRoot>
     );
-    const input = screen.getByPlaceholderText(
-      'Insira os nomes dos participantes'
-    );
+    const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
     const botao = screen.getByRole('button');
     fireEvent.change(input, { target: { value: 'Maria Silva' } });
     fireEvent.click(botao);

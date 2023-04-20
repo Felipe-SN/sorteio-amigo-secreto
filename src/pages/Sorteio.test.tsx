@@ -1,8 +1,8 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
-import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
-import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio';
-import Sorteio from './Sorteio';
+import { useListaParticipantes } from 'state/hooks/useListaParticipantes.ts';
+import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio.ts';
+import Sorteio from './Sorteio.tsx';
 
 jest.mock('state/hooks/useListaParticipantes', () => ({
   useListaParticipantes: jest.fn(),

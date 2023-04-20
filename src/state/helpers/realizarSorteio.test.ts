@@ -1,15 +1,8 @@
-import realizarSorteio from './realizarSorteio';
+import realizarSorteio from './realizarSorteio.ts';
 
 describe('Dado um sorteio de amigo secreto', () => {
   test('Cada participante não deve sortear o próprio nome', () => {
-    const participantes = [
-      'Ana',
-      'Maria',
-      'Claudia',
-      'Pedro',
-      'Roberto',
-      'Carlos',
-    ];
+    const participantes = ['Ana', 'Maria', 'Claudia', 'Pedro', 'Roberto', 'Carlos'];
 
     const sorteio = realizarSorteio(participantes);
     participantes.forEach(participante => {

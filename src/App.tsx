@@ -1,9 +1,9 @@
-import Cabecalho from 'components/Cabecalho';
-import GlobalStyle from 'components/GlobalStyle';
-import Configuracao from 'pages/Configuracao';
-import Sorteio from 'pages/Sorteio';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+import Cabecalho from 'components/Cabecalho';
+import Configuracao from 'pages/Configuracao';
+import GlobalStyle from 'components/GlobalStyle';
+import Sorteio from 'pages/Sorteio';
 
 const App = () => {
   return (
