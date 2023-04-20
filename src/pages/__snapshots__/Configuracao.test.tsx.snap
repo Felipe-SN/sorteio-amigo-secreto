@@ -3,7 +3,7 @@
 exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
 <div>
   <div
-    class="sc-bcXHqe ldcdWJ"
+    class="sc-beqWaB iyznMt"
   >
     <section>
       <h2>
@@ -11,7 +11,7 @@ exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
       </h2>
       <form>
         <div
-          class="sc-gswNZR heeYVX"
+          class="sc-gueYoa ezKXqh"
         >
           <input
             placeholder="Insira os nomes dos participantes"
@@ -28,10 +28,10 @@ exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
       </form>
       <ul />
       <footer
-        class="sc-eDvSVe flOdzN"
+        class="sc-eDDNvR hyxgKm"
       >
         <button
-          class="sc-hLBbgP fXtuGw"
+          class="sc-hLseeU ftPqqO"
           disabled=""
         >
           Iniciar brincadeira!
@@ -39,7 +39,7 @@ exports[`A pagina de configuração Deve ser renderizada corretamente 1`] = `
         <img
           alt="Sacolas de compras"
           aria-hidden="true"
-          class="sc-jSUZER eHNkSE"
+          class="sc-jTrPJq ilTRsp"
           src="/img/sacolas.png"
         />
       </footer>
