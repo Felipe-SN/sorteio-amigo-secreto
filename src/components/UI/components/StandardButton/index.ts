@@ -1,5 +1,5 @@
 import { colors, sizes } from 'components/UI/variables';
-import data from 'data/imgs.json';
+import { imagens } from 'data/imgs.json';
 import styled from 'styled-components';
 
 const StandardButton = styled.button`
@@ -20,7 +20,7 @@ const StandardButton = styled.button`
   width: 100%;
 
   &::before {
-    background-image: url(${data.imagens.play});
+    background-image: url(${imagens.play});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
