@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 import { colors } from 'components/UI/variables';
+import { ReactNode } from 'react';
 
 const StyledCard = styled.div`
   align-content: center;
@@ -23,8 +23,6 @@ const StyledCard = styled.div`
   }
 `;
 
-const Card: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return <StyledCard>{children}</StyledCard>;
-};
+const Card = ({ children }: { children: ReactNode }) => <StyledCard>{children}</StyledCard>;
 
 export default Card;

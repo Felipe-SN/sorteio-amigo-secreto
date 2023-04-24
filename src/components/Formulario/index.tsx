@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import useAdicionarParticipante from 'state/hooks/useAdicionarParticipante';
 import useMensagemErro from 'state/hooks/useMensagemErro';
-import data from 'data/imgs.json';
+import { imagens } from 'data/imgs.json';
 import { colors, sizes } from 'components/UI/variables/index';
 import styled from 'styled-components';
 
@@ -25,7 +25,7 @@ const WrapperInputBtn = styled.div`
     width: 100%;
   }
   & > input::placeholder {
-    background-image: url(${data.imagens.addPerson});
+    background-image: url(${imagens.addPerson});
     background-position: 52px;
     background-repeat: no-repeat;
     background-size: 24px;

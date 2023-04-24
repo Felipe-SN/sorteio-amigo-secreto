@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import { createRoot } from 'react-dom/client';
+import * as React from 'react';
+import { RecoilRoot } from 'recoil';
+import GlobalStyle from 'components/GlobalStyle';
+import RoutesProvider from 'routes/RoutesProvider';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      <GlobalStyle />
+      <RoutesProvider />
+    </RecoilRoot>
   </React.StrictMode>
 );

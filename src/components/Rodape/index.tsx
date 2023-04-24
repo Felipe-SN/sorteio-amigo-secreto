@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { imagens } from 'data/imgs.json';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useSorteador } from 'state/hooks/useSorteador';
-import data from 'data/imgs.json';
-import styled from 'styled-components';
+import router from 'routes/router';
 import StandardButton from 'components/UI/components/StandardButton';
+import styled from 'styled-components';
 
 const FooterConfig = styled.footer`
   margin-top: 15px;
@@ -28,7 +28,7 @@ const Sacolas = styled.img`
 
 const Rodape = () => {
   const listaParticipantes = useListaParticipantes();
-  const navigate = useNavigate();
+  const { navigate } = router;
   const sortear = useSorteador();
 
   const iniciar = () => {
@@ -38,17 +38,10 @@ const Rodape = () => {
 
   return (
     <FooterConfig>
-      <StandardButton
-        disabled={listaParticipantes.length < 3}
-        onClick={() => iniciar()}
-      >
+      <StandardButton disabled={listaParticipantes.length < 3} onClick={() => iniciar()}>
         Iniciar brincadeira!
       </StandardButton>
-      <Sacolas
-        src={data.imagens.sacolas}
-        alt="Sacolas de compras"
-        aria-hidden={true}
-      />
+      <Sacolas src={imagens.sacolas} alt="Sacolas de compras" aria-hidden={true} />
     </FooterConfig>
   );
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import data from 'data/imgs.json';
+import { imagens } from 'data/imgs.json';
+import { Outlet } from 'react-router';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -14,12 +15,12 @@ const StyledHeader = styled.header`
 `;
 
 const Logo = styled.div`
-  background-image: url(${data.imagens.logo});
+  background-image: url(${imagens.logo});
   width: 351px;
   height: 117px;
 
   @media screen and (max-width: 800px) {
-    background-image: url(${data.imagens.logoPequeno});
+    background-image: url(${imagens.logoPequeno});
     width: 235px;
     height: 199px;
   }
@@ -36,13 +37,13 @@ const Participante = styled.img`
 
 const Cabecalho = () => {
   return (
-    <StyledHeader>
-      <Logo role="img" aria-label="Sorteador de Amigo Secreto" />
-      <Participante
-        src={data.imagens.participante}
-        alt="Participante com um presente na mão"
-      />
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <Logo role="img" aria-label="Sorteador de Amigo Secreto" />
+        <Participante src={imagens.participante} alt="Participante com um presente na mão" />
+      </StyledHeader>
+      <Outlet />
+    </>
   );
 };
 
