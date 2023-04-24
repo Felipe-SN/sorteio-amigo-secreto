@@ -3,7 +3,7 @@ import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio';
 import { useState } from 'react';
 import Card from 'components/Card';
-import data from 'data/imgs.json';
+import { imagens } from 'data/imgs.json';
 import StandardButton from 'components/UI/components/StandardButton';
 import styled from 'styled-components';
 
@@ -71,7 +71,7 @@ const ButtonSortear = styled(StandardButton)`
   max-width: 227px;
 
   &::before {
-    background-image: url(${data.imagens.dice});
+    background-image: url(${imagens.dice});
     background-size: auto;
     height: 35px;
     width: 35px;
@@ -172,7 +172,7 @@ const Sorteio = () => {
         <WrapperResultado>{amigoSecreto && <Resultado role="alert">{amigoSecreto}</Resultado>}</WrapperResultado>
       </StyledSorteio>
       <FooterSorteio>
-        <Airplane aria-hidden={true} alt="Um desenho de um avião de papel" src={data.imagens.airplane} />
+        <Airplane aria-hidden={true} alt="Um desenho de um avião de papel" src={imagens.airplane} />
       </FooterSorteio>
     </Card>
   );
