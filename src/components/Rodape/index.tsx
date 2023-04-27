@@ -1,7 +1,7 @@
 import { imagens } from 'data/imgs.json';
+import { router } from 'routes/router';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
 import { useSorteador } from 'state/hooks/useSorteador';
-import router from 'routes/router';
 import StandardButton from 'components/UI/components/StandardButton';
 import styled from 'styled-components';
 
@@ -27,8 +27,8 @@ const Sacolas = styled.img`
 `;
 
 const Rodape = () => {
-  const listaParticipantes = useListaParticipantes();
   const { navigate } = router;
+  const listaParticipantes = useListaParticipantes();
   const sortear = useSorteador();
 
   const iniciar = () => {

@@ -2,10 +2,8 @@ import capitalizar from './capitatizar.ts';
 
 describe('O texto inserido deve ser retornado:', () => {
   test('com a primeira letra de cada palavra em maiúsculo', () => {
-    const nome = 'ALUÍZIO DE BRAGANÇA E GUSMÃO';
-    const nomeEsperado = 'Aluízio De Bragança E Gusmão';
-    const nomeCapitalizado = capitalizar(nome);
+    const nomeCapitalizado = capitalizar('ALUÍZIO DE BRAGANÇA E GUSMÃO');
 
-    expect(nomeCapitalizado).toEqual(nomeEsperado);
+    expect(nomeCapitalizado).toEqual('Aluízio De Bragança E Gusmão');
   });
 });

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes.ts';
 import ListaParticipantes from './index.tsx';
@@ -14,15 +14,13 @@ describe('Comportamento do componente ListaParticipantes', () => {
     });
 
     test('A lista renderizada não deve conter elementos', () => {
-      render(
+      const { queryAllByRole } = render(
         <RecoilRoot>
           <ListaParticipantes />
         </RecoilRoot>
       );
 
-      const itens = screen.queryAllByRole('listitem');
-
-      expect(itens).toHaveLength(0);
+      expect(queryAllByRole('listitem')).toHaveLength(0);
     });
   });
 
@@ -34,15 +32,13 @@ describe('Comportamento do componente ListaParticipantes', () => {
     });
 
     test('A lista renderizada deve conter elementos', () => {
-      render(
+      const { queryAllByRole } = render(
         <RecoilRoot>
           <ListaParticipantes />
         </RecoilRoot>
       );
 
-      const itens = screen.queryAllByRole('listitem');
-
-      expect(itens).toHaveLength(participantes.length);
+      expect(queryAllByRole('listitem')).toHaveLength(participantes.length);
     });
   });
 });

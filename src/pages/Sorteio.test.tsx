@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 import { useListaParticipantes } from 'state/hooks/useListaParticipantes.ts';
 import { useResultadoSorteio } from 'state/hooks/useResultadoSorteio.ts';
@@ -14,7 +14,6 @@ jest.mock('state/hooks/useResultadoSorteio', () => ({
 
 describe('Na página de sorteio', () => {
   const participantes = ['Ana', 'Maria', 'Joel'];
-
   const resultado = new Map([
     ['Ana', 'Joel'],
     ['Maria', 'Ana'],
@@ -27,55 +26,44 @@ describe('Na página de sorteio', () => {
   });
 
   test('Todos os participantes podem exibir seu amigo secreto', () => {
-    render(
+    const { queryAllByRole } = render(
       <RecoilRoot>
         <Sorteio />
       </RecoilRoot>
     );
 
-    const opcoes = screen.queryAllByRole('option');
-
-    expect(opcoes).toHaveLength(participantes.length + 1);
+    expect(queryAllByRole('option')).toHaveLength(participantes.length + 1);
   });
 
   test('O amigo secreto deve ser exibido quando solicitado', () => {
-    render(
+    const { getByPlaceholderText, getByRole } = render(
       <RecoilRoot>
         <Sorteio />
       </RecoilRoot>
     );
 
-    const select = screen.getByPlaceholderText('Selecione o seu nome');
-    const botao = screen.getByRole('button');
+    fireEvent.change(getByPlaceholderText('Selecione o seu nome'), { target: { value: participantes[0] } });
+    fireEvent.click(getByRole('button'));
 
-    fireEvent.change(select, { target: { value: participantes[0] } });
-    fireEvent.click(botao);
-
-    const amigoSecreto = screen.getByRole('alert');
-
-    expect(amigoSecreto).toBeInTheDocument();
+    expect(getByRole('alert')).toBeInTheDocument();
   });
 
   test('Nome do amigo secreto deve sumir após 5 segundos', async () => {
     jest.useFakeTimers();
 
-    render(
+    const { getByPlaceholderText, getByRole, queryByRole } = render(
       <RecoilRoot>
         <Sorteio />
       </RecoilRoot>
     );
 
-    const select = screen.getByPlaceholderText('Selecione o seu nome');
-    fireEvent.change(select, { target: { value: participantes[0] } });
-
-    const botao = screen.getByRole('button');
-    fireEvent.click(botao);
+    fireEvent.change(getByPlaceholderText('Selecione o seu nome'), { target: { value: participantes[0] } });
+    fireEvent.click(getByRole('button'));
 
     act(() => {
       jest.runAllTimers();
     });
 
-    const alerta = screen.queryByRole('alert');
-    expect(alerta).not.toBeInTheDocument();
+    expect(queryByRole('alert')).not.toBeInTheDocument();
   });
 });

@@ -1,21 +1,15 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
-import { useListaParticipantes } from 'state/hooks/useListaParticipantes.ts';
-import Rodape from './index.tsx';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { router, routesConfig } from 'routes/router';
+import { useListaParticipantes } from 'state/hooks/useListaParticipantes';
+import Rodape from '.';
 
-jest.mock('state/hooks/useListaParticipantes', () => ({
-  useListaParticipantes: jest.fn(),
-}));
-const mockNavigate = jest.fn();
 const mockSorteio = jest.fn();
 
-jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
-}));
+jest.mock('state/hooks/useListaParticipantes', () => ({ useListaParticipantes: jest.fn() }));
 
-jest.mock('state/hooks/useSorteador', () => ({
-  useSorteador: () => mockSorteio,
-}));
+jest.mock('state/hooks/useSorteador', () => ({ useSorteador: () => mockSorteio }));
 
 describe('Comportamento do componente Rodape', () => {
   describe('Onde não existem participantes suficientes', () => {
@@ -23,53 +17,50 @@ describe('Comportamento do componente Rodape', () => {
       (useListaParticipantes as jest.Mock).mockReturnValue([]);
     });
     test('A brincadeira não pode ser iniciada', () => {
-      render(
+      const { getByRole } = render(
         <RecoilRoot>
           <Rodape />
         </RecoilRoot>
       );
 
-      const botao = screen.getByRole('button');
-      const listaParticipantes = useListaParticipantes();
-
-      expect(listaParticipantes).toHaveLength(0);
-      expect(botao).toBeDisabled();
+      expect(useListaParticipantes()).toHaveLength(0);
+      expect(getByRole('button')).toBeDisabled();
     });
   });
 
   describe('Quando existem participantes suficientes', () => {
-    const participantes = ['Ana', 'Pedro', 'Maria'];
     beforeEach(() => {
-      (useListaParticipantes as jest.Mock).mockReturnValue(participantes);
+      (useListaParticipantes as jest.Mock).mockReturnValue(['Ana', 'Pedro', 'Maria']);
     });
     test('A brincadeira pode ser iniciada', () => {
-      render(
+      const { getByRole } = render(
         <RecoilRoot>
           <Rodape />
         </RecoilRoot>
       );
 
-      const botao = screen.getByRole('button');
-      const listaParticipantes = useListaParticipantes();
-
-      expect(listaParticipantes).toHaveLength(3);
-      expect(botao).toBeEnabled();
+      expect(useListaParticipantes()).toHaveLength(3);
+      expect(getByRole('button')).toBeEnabled();
     });
 
     test('A brincadeira foi iniciada', () => {
-      render(
+      const mockRouter = createMemoryRouter(routesConfig, {
+        initialEntries: ['/'],
+        initialIndex: 0,
+      });
+      const mockNavigate = jest.spyOn(router, 'navigate').mockImplementation(() => mockRouter.navigate('/sorteio'));
+
+      const { getByText } = render(
         <RecoilRoot>
-          <Rodape />
+          <RouterProvider router={mockRouter} />;
         </RecoilRoot>
       );
 
-      const botao = screen.getByRole('button');
-
-      fireEvent.click(botao);
+      fireEvent.click(getByText('Iniciar brincadeira!'));
 
       expect(mockSorteio).toHaveBeenCalledTimes(1);
-      expect(mockNavigate).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledWith('/sorteio');
+      expect(mockRouter.state.location.pathname).toBe('/sorteio');
     });
   });
 });

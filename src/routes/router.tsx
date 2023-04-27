@@ -1,9 +1,9 @@
+import { createBrowserRouter } from 'react-router-dom';
 import Cabecalho from 'components/Cabecalho';
 import Configuracao from 'pages/Configuracao';
 import Sorteio from 'pages/Sorteio';
-import { createBrowserRouter } from 'react-router-dom';
 
-const router = createBrowserRouter([
+export const routesConfig = [
   {
     element: <Cabecalho />,
     path: '/',
@@ -13,6 +13,6 @@ const router = createBrowserRouter([
       { path: 'sorteio', element: <Sorteio /> },
     ],
   },
-]);
+];
 
-export default router;
+export const router = createBrowserRouter(routesConfig);

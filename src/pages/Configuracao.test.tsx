@@ -1,15 +1,17 @@
-import { render } from '@testing-library/react';
+import 'jest-styled-components';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import Configuracao from './Configuracao.tsx';
+import { render } from '@testing-library/react';
+import { routesConfig } from 'routes/router';
+import Configuracao from './Configuracao';
 
-const mockNavigate = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
-}));
+const router = createMemoryRouter(routesConfig, {
+  initialEntries: ['/'],
+});
 
 describe('A pagina de configuração', () => {
   test('Deve ser renderizada corretamente', () => {
+    <RouterProvider router={router} />;
     const { container } = render(
       <RecoilRoot>
         <Configuracao />
